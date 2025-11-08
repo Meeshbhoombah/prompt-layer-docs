@@ -3,14 +3,25 @@ title: "Quickstart"
 icon: "flag-checkered"
 ---
 
-This Quickstart teaches you how to start using PromptLayer in minutes.
+This guide teaches you how to start using PromptLayer, in minutes. It assumes no
+prior experience with artifical intelligence. 
 
 <Info>
 [Create an account](https://dashboard.promptlayer.com/create-account) to use
-this guide.
+the Quickstart.
 </Info>
 
 ## Prompts
+A prompt, in the context of artificial intelligence, is a carefully crafted 
+input provided to an AI model to elicit a specific response or output. It serves
+as the primary means of communication between humans and AI systems, guiding 
+the model's behavior and shaping its generated content.
+
+Learn more about [Prompts](https://www.promptlayer.com/glossary/prompt).
+
+Prompts are the core of AI applications. PromptLayer is designed to help you 
+decouple this core from code.
+
 ### Creation
 Within the home of a workspace, a new Prompt can be created by clicking "New"
 then selecting "Prompt."
@@ -24,7 +35,7 @@ A new prompt has two default Roles for the model to exhibit: "System" and
 
 <Accordion
     icon="circle-question-mark"
-    title='"User" and "System" Explained'
+    title='System and User, Explained'
 >
 ### "System"
 A System Prompt is a specialized type of Prompt used in AI language models that 
@@ -45,7 +56,9 @@ Learn more about [User Prompts](https://blog.promptlayer.com/system-prompt-vs-us
 </Accordion>
 
 ### Versioning
-Each new saved edit of a Prompt creates a version.
+Versioning allows teams to safely refine and experiment without losing previous
+work. Every version records what changed, when, and by whom, making it simple to
+compare, test, or revert as your prompt evolves.
 
 <Frame
     caption='Versions accumulated overtime to the left of a prompt.'
@@ -53,27 +66,10 @@ Each new saved edit of a Prompt creates a version.
 ![Prompt version history display](/images/quickstart/prompt-versioning-display.png)
 </Frame>
 
-<br></br>
-<Accordion
-    icon="circle-question-mark"
-    title='"Versioning" Explained'
->
-“Versioning” is a structured practice in software engineering that tracks and 
-manages the evolution of a system, document, or piece of code over time. It 
-assigns identifiers, often numerical or semantic, to distinguish one iteration 
-from another, allowing developers to compare, revert, and understand changes 
-across the project’s history. 
-
-**When applied to Prompt Engineering, versioning maintains a clear record of how 
-Prompts change across experiments and refinements.** Each iteration is preserved 
-with its own identifier, allowing engineers to trace improvements in phrasing or 
-logic, revert to earlier configurations, and ensure that only the most effective 
-Prompt versions are deployed to users.
-</Accordion>
-
 #### Diffing
-Two versions of a Prompt can be diffed by selecting a version, then hovering
-another. This will reveal the clickable "View Diff" button.
+Inspired by version control tools, the Diff Viewer highlights deletions in red
+and additions in green. This makes it easier to spot subtle edits that alter a
+prompt’s behavior or output.
 
 <Frame
     caption='The diff of two prompts, presented after clicking "View Diff"'
@@ -81,22 +77,10 @@ another. This will reveal the clickable "View Diff" button.
 ![Prompt diffing comparison view](/images/quickstart/prompt-diffing-display.png)
 </Frame>
 
-<br></br>
-<Accordion
-    icon="circle-question-mark"
-    title='"Diffing" Explained'
->
-"Diffing" is a common software engineering mechanic that is employed to
-compare two versions of some text. It isolates and visualizes the specific
-additions, deletions, and modifications made, providing granular detail on 
-what has changed.
-
-**When applied to Prompt Engineering, diffing helps identify precisely what 
-modifications in a Prompt led to a different or improved AI output.**
-</Accordion>
-
 #### AI Prompt Writer
-New versions of a Prompt can be generated with AI within the Editor.
+The AI Prompt Writer helps you rewrite prompts in clear and natural language.
+It suggests better ways to phrase your ideas, helping you get stronger results
+without needing to understand how the AI works under the hood.
 
 <Frame
     caption='The AI Prompt Writer, accessed by the Magic icon'
@@ -105,7 +89,8 @@ New versions of a Prompt can be generated with AI within the Editor.
 </Frame>
 
 #### Switch Models
-A Prompt's model can be changed. 
+PromptLayer works with many different AI models. You can switch between
+popular models like GPT-5, Opus, or Gemini directly from the dashboard. 
 
 <Frame
     caption='The Model Configuration Panel, accessed by clicking the current 
@@ -114,9 +99,13 @@ A Prompt's model can be changed.
 ![Switching models in the prompt editor](/images/quickstart/prompt-switch-model-display.png)
 </Frame>
 
+PromptLayer also supports [custom models](https://docs.promptlayer.com/features/custom-providers) 
+and [fine-tuned models](https://docs.promptlayer.com/why-promptlayer/fine-tuning#fine-tuning) 
+for teams that need specialized behavior.
+
 #### Prompt Blueprint
-Prompts can be exported to be utilized within other applications like ChatGPT,
-Anthropic, etc. with its "Prompt Blueprint." 
+Prompts can be exported to be utilized within other AI systems via its "Prompt 
+Blueprint." 
 
 <Frame
     caption='"Copy to Clipboard" provides the Prompt Blueprint'
@@ -129,9 +118,8 @@ Anthropic, etc. with its "Prompt Blueprint."
     icon="info"
     title='"Prompt Blueprints" are a PromptLayer format'
 >
-Defined by PromptLayer, "Prompt Blueprints" format the information
-that build a Prompt (e.g.: the "User" and "System" roles) by surrounding 
-its text.
+Defined by PromptLayer, "Prompt Blueprints" format the information that build a 
+Prompt (e.g.: the "User" and "System" roles) by surrounding its text.
 
 Excerpt from a Blueprint:
 ```
@@ -154,66 +142,35 @@ and its format.
 </Accordion>
 
 ### Releases
-Under the date is the button clickable for creating a new release label.
+Release labels help you control which prompt versions are live. You can mark
+some versions as “testing” and others as “production.” This makes it possible
+to release changes slowly, compare results between two versions, and roll out
+the best one when ready.
 
 <Frame>
 ![Accessing prompt release controls](/images/quickstart/prompt-release-access.png)
 </Frame>
 
-<Accordion
-    icon="circle-question-mark"
-    title='"Release Labeling" Explained'
->
-"Releases Labeling" is a process in software engineering that provides 
-a structured approach to building, testing, and deploying new versions of 
-software. It supports the engineering process to ensure that software is 
-stable, meets quality standards, and is delivered to users efficiently.
-
-**When applied to Prompt Engineering, release labels can guide the 
-development process of Prompts to their final stage.** Labels like 
-"testing," "under evaluation," or "finalized" provide clarity as Prompts 
-are versioned. Labeling ensures that the correct version is being tested
-or provided to users.
-</Accordion>
-
 #### A/B Testing
-Hovering a Prompt version reveals the "Start A/B Test" button.
+A/B testing lets you compare two or more versions of a prompt to see which one
+performs better. It’s a simple way to test small changes, like wording or tone,
+before rolling them out to production.
+
+PromptLayer makes A/B testing part of your workflow. You can assign release
+labels such as “A” and “B” to different prompt versions, send each version a
+portion of live traffic, and track which one produces better responses.
+
+This process helps teams learn what works through real data, not guesswork.
+Once the winning version is identified, it can be promoted to production with
+a single click.
 
 <Frame>
 ![Starting a prompt A/B test](/images/quickstart/prompt-ab-test-display.png)
 </Frame>
 
-<br></br>
-<Accordion
-    icon="circle-question-mark"
-    title='"A/B Testing" Explained'
->
-"A/B Testing" is a method for data-driven decision-making in digital
-marketing, product design, and other fields. It identifies which of two
-versions of an item being tested perform better by comparing measured
-user responses to both.
-
-**When applied to Prompt Engineering, A/B testing can uncover subtle user
-behavior patterns.** It can validate assumptions about phrasing or structure
-and build a data-backed history of what language works best across different
-contexts or models.
-</Accordion>
+Learn more about [A/B testing](/ab-testing).
 
 ## Agents
-Within the home of a workspace, a new agent can be created by clicking "New"
-then selecting "Agent."
-
-<Frame
-    caption='An active A/B test with configured percentages'
->
-![Agent creation access in workspace](/images/quickstart/agent-creation-access.png)
-</Frame>
-
-<br></br>
-<Accordion
-    icon="circle-question-mark"
-    title='"Agents" Explained'
->
 "Agents" are software programs that perceive their environment, make 
 decisions, and take actions autonomously to achieve a goal. These agents can
 range from simple systems like a thermostat to complex digital assistants 
@@ -221,47 +178,33 @@ that can execute multi-step tasks with minimal human intervention.
 
 Unlike a Prompt, an Agent can independently plan and adapt its actions to
 achieve an objective over an extended period.
-</Accordion>
+
+Agents can be as simple as a single prompt or as advanced as a multi-step
+workflow. You can build them visually by connecting steps together, with no
+programming needed. Agents are useful for automating tasks or guiding the AI
+through complex processes that unfold over several steps.
+
+<Frame
+    caption='An active A/B test with configured percentages'
+>
+![Agent creation access in workspace](/images/quickstart/agent-creation-access.png)
+</Frame>
 
 ## Evals
-Evaluations can be added for both Prompts and Agents.
-
-"Evaluations" are systematic quality checks for AI systems, used to measure
-and improve their performance, accuracy, reliability, and safety. They are a
-set of structured processes and data used to test how well an AI performs a
-specific task and to identify areas for improvement, ensuring the AI works 
-as intended and meets business goals. 
+Evals are tests that show how well your prompts or agents perform. You can run
+automated checks, collect feedback from people, or measure accuracy over time.
+Evals make it easy to know when your AI is improving and when it needs work.
 
 Learn more about [Evaluations](https://docs.promptlayer.com/features/evaluations/overview).
 
 ## Analytics
-Within a workspace, Analytics are viewable by clicking the "Analytics" icon.
+Analytics help you understand how your prompts and agents are performing. They
+show cost, speed, and quality, so you can make informed changes. Analytics also
+create an audit trail for every run, helping teams track and review all work.
 
 <Frame>
 ![Analytics dashboard display](/images/quickstart/analytics-display.png)
 </Frame>
-
-<br></br>
-<Accordion
-    icon="circle-question-mark"
-    title='"Analytics" Explained'
->
-"Analytics" describes a methodology used in software engineering to improve
-software quality and engineering processes. It uses human interpretation of 
-data, purposefully created by the software for humans to improve it.
-
-Many website developers use analytics to re-order elements on a page to ensure
-visitors become customers, negating the visitors' confusion in purchase
-decision-making. Websites are built with the ability to determine which
-elements are viewed, or engaged with, allowing for optimization of their
-ordering or design.
-
-**When applied to Prompt Engineering, analytics can enhance how Prompts are
-designed, tested, and maintained.** Careful consideration of analytics can 
-identify what language patterns drive stronger responses and reduce costs.
-
-Learn more about "[Analytics](https://docs.promptlayer.com/why-promptlayer/analytics#analytics)."
-</Accordion>
 
 ### Logs
 Within a workspace, Logs are viewable by clicking the "Live Logs" icon. Each
@@ -271,17 +214,9 @@ request to a model creates a Log.
 ![Logs interface display](/images/quickstart/logs-display.png)
 </Frame>
 
-<br></br>
-<Accordion
-    icon="circle-question-mark"
-    title='"Logs" Explained'
->
-"Logs" are the composite data provided by the installation of Analytics code
-into some software. 
-
-**In the context of Prompt Engineering, this reference remains the same, but
-are of a Prompt, rather than an application.** 
-</Accordion>
+Each prompt run is recorded with full details of what was sent and what came
+back. Logs help teams trace errors, learn from past results, and improve
+performance over time.
 
 #### View Logs By Prompt
 When a prompt is selected, clicking the "Analytics & Logs" panel reveals the
@@ -292,9 +227,9 @@ Logs.
 </Frame>
 
 ### Tracing
-Within a workspace, Traces are viewable by clicking the "Live Logs" icon, then
-navigating to "Trace" at the top of the logs. Selecting a Trace will reveal
-its Spans.
+Tracing divides complex workflows into clear steps, called spans. You can see
+exactly how long each step takes and where issues may occur, making problem
+solving faster and easier.
 
 <Frame>
 ![Trace visualization display](/images/quickstart/traces-display.png)
@@ -304,29 +239,10 @@ its Spans.
 Traces are for Agents, not Prompts
 </Note>
 
-<Accordion
-    icon="circle-question-mark"
-    title='"Tracing" and "Spans" Explained'
->
-Tracing is a process in software engineering written to code, tracking any 
-action within some software end-to-end through the system. Spans are the 
-individual actions that make up a trace. Software engineers write code in 
-software that specifically emit Spans to build a Trace.
-
-**When applied to Prompt Engineering, tracing and spans visualize the reasoning
-chain that form final outputs, revealing how specific components contribute to 
-them.** 
-</Accordion> 
-
 ### Observability
-Logs and Traces are updated in real time, enabling Observability.
-
-"Observability" is a sub-practice of software engineering, where engineers
-understand a system's internal state by analyzing the external data it 
-generates, such as logs, metrics, and traces.
-
-**When applied to Prompt Engineering, observability is the basis for inferring
-how to refine a Prompt and diagnose subtle issues.**
+Logs and traces together create observability, or the ability to see inside
+your system. With PromptLayer, every part of your AI process becomes clear and
+understandable, from first draft to production launch.
 
 Learn more about [Observability](https://www.promptlayer.com/platform/observability).
 

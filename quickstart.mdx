@@ -11,6 +11,19 @@ prior experience with artifical intelligence.
 the Quickstart.
 </Info>
 
+To grasp the core features of PromptLayer, we'll build a Cake Recipe generator
+that takes advantage of artifical intelligence to balance a chosen type of cake 
+and baking time. 
+
+{/* TODO: screenshot displaying a user actuation of the Cake Recipie generator */}
+
+Having the know-how to create a recipe for any type of cake, within a specific 
+amount of time, would be difficult without artifical intelligence. The Wikipedia 
+"[List of Cakes](https://en.wikipedia.org/wiki/List_of_cakes)" is 330 cakes long
+(we used an AI to count it for us), requring a dedicated human spending years to 
+master recipies. To adjust a recipe to a set time, mastery over it is necessary.
+Instead, artifical intelligence can adjust any recipe for us within seconds.
+
 ## Prompts
 A prompt, in the context of artificial intelligence, is a carefully crafted 
 input provided to an AI model to elicit a specific response or output. It serves
@@ -55,6 +68,30 @@ generating creative content.
 Learn more about [User Prompts](https://blog.promptlayer.com/system-prompt-vs-user-prompt-a-comprehensive-guide-for-ai-prompts/#what-is-a-user-prompt).
 </Accordion>
 
+Let's begin building our Cake Recipe Generator. Create a new prompt, then 
+replace its contents with the following:
+
+##### System
+```markdown
+You are a world-class pastry chef and culinary instructor who specializes in making recipes clear, adaptable, and delicious. Your goal is to generate cake recipes that balance creativity and structure.
+
+Recipes should always include:
+1. A short description that captures the cake’s essence
+2. A list of ingredients with precise measurements in both metric and US units
+3. Step-by-step instructions written conversationally but clearly
+4. Optional variations or substitutions
+
+Keep instructions simple enough for home bakers, but detailed enough to ensure consistent results.
+```
+
+##### User
+```markdown
+Create a cake recipe for {{cake_type}} that serves {{serving_size}} people and takes around {{baking_time}} minutes to bake.
+```
+
+Save the initial version with a message like, "Added base version of Cake Recipe
+Generator."
+
 ### Versioning
 Versioning allows teams to safely refine and experiment without losing previous
 work. Every version records what changed, when, and by whom, making it simple to
@@ -66,10 +103,34 @@ compare, test, or revert as your prompt evolves.
 ![Prompt version history display](/images/quickstart/prompt-versioning-display.png)
 </Frame>
 
+Let's version our Cake Recipe Generator. Add these changes to the System and 
+User roles:
+
+##### System
+```markdown
+You are a Michelin-star pastry chef and recipe writer. Generate detailed, reliable, and imaginative cake recipes.
+
+Each response must include the following sections formatted with clear headers:
+
+Overview: A one-paragraph introduction capturing the cake’s story and mood.
+Ingredients: Use bullet points with both metric and US measurements.
+Instructions: Numbered steps with exact details (temperature, mixing times, resting periods).
+Optional Enhancements: Variations, frostings, or pairings.
+
+Maintain a confident yet friendly tone, suitable for both beginners and enthusiasts.
+```
+
+##### User
+```markdown
+Generate a recipe for a {{cake_type}} that serves {{serving_size}} people and should be completed within {{baking_time}} minutes.
+```
+
 #### Diffing
 Inspired by version control tools, the Diff Viewer highlights deletions in red
 and additions in green. This makes it easier to spot subtle edits that alter a
 prompt’s behavior or output.
+
+Try diffing the two verisons of our Cake Recipe Generator.
 
 <Frame
     caption='The diff of two prompts, presented after clicking "View Diff"'
@@ -89,8 +150,10 @@ without needing to understand how the AI works under the hood.
 </Frame>
 
 #### Switch Models
-PromptLayer works with many different AI models. You can switch between
-popular models like GPT-5, Opus, or Gemini directly from the dashboard. 
+PromptLayer works with many different AI models. You can switch between popular 
+models like GPT-5, Opus, or Gemini directly from the dashboard. 
+
+Try switching the model of our Cake Recipe Generator.
 
 <Frame
     caption='The Model Configuration Panel, accessed by clicking the current 
@@ -140,6 +203,47 @@ Excerpt from a Blueprint:
 Learn more about "[Prompt Blueprints](https://docs.promptlayer.com/running-requests/prompt-blueprints)"
 and its format.
 </Accordion>
+
+Copy and paste the Cake Recipe Generator's Prompt Blueprint into a word 
+processing application. It should look something like this:
+```json
+{
+  ...
+  "prompt_template": {
+    "type": "chat",
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a Michelin-star pastry chef and recipe writer. Generate detailed, reliable, and imaginative cake recipes.\nEach response must include the following sections formatted with clear headers:\nOverview: A one-paragraph introduction capturing the cake’s story and mood.\nIngredients: Use bullet points with both metric and US measurements.\nInstructions: Numbered steps with exact details (temperature, mixing times, resting periods).\nOptional Enhancements: Variations, frostings, or pairings.\nMaintain a confident yet friendly tone, suitable for both beginners and enthusiasts.",
+            "id": null,
+            "annotations": null
+          }
+        ],
+        "name": null,
+        "tool_calls": [],
+        "template_format": "jinja2"
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Generate a recipe for a {{cake_type}} that serves {{serving_size}} people and should be completed within {{baking_time}} minutes.",
+            "id": null,
+            "annotations": null
+          }
+        ],
+        ...
+      }
+    ],
+    ...
+  },
+  ...
+}
+```
 
 ### Releases
 Release labels help you control which prompt versions are live. You can mark

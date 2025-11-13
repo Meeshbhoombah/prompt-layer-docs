@@ -15,11 +15,9 @@ To grasp some of the core features of PromptLayer, we'll build a Cake Recipe
 generator that takes advantage of artifical intelligence to balance a chosen 
 type of cake and baking time. 
 
-{/* TODO: screenshot displaying a user actuation of the Cake Recipie generator */}
-
 Having the know-how to create a recipe for any type of cake, within a specific 
-amount of time, would be difficult without artifical intelligence. The Wikipedia 
-"[List of Cakes](https://en.wikipedia.org/wiki/List_of_cakes)" is 330 cakes long
+amount of time, would be difficult without artifical intelligence. Wikipedia's 
+[List of Cakes](https://en.wikipedia.org/wiki/List_of_cakes) is 330 cakes long
 (we used an AI to count it for us), requring a dedicated human spending years to 
 master recipies. To adjust a recipe to a set time, mastery over it is necessary.
 Instead, artifical intelligence can adjust any recipe for us within seconds.
@@ -89,8 +87,59 @@ Keep instructions simple enough for home bakers, but detailed enough to ensure c
 Create a cake recipe for {{cake_type}} that serves {{serving_size}} people and takes around {{baking_time}} minutes to bake.
 ```
 
-Save the initial version with a message like, "Added base version of Cake Recipe
-Generator."
+You'll notice that the User prompt automatically styles the text surrounded by 
+double curly braces (e.g.: `{{cake_type}}`) seperately from the rest of the 
+prompt's text. We have denoted, and PromptLayer is detecting, the usage of 
+templates. Within these curly braces, we are utilizing one of the basic building
+blocks of engineering: variability. Roughly, variables are words that exist 
+abstractly within some software. As a result, the data associated to a variable 
+can be changed. In our case, the usage of variables suggest to PromptLayer that 
+when a prompt is ran, these words should be replaced by a value that the 
+prompt's run has provided. This will make more sense if we use these variables.
+
+To use the variables we have defined within our prompt, PromptLayer's playground 
+provides the ability to create a groupings of values assocaited with variables
+defined in a prompt. Under "Input Variable Sets" on the right hand side of the 
+editor, click "Define input variables."
+
+A modal will appear with titled "Edit Input Variable Set," containing each of 
+the variables we have defined:
+1. `baking_time`
+2. `cake_type`
+3. `serving_size`
+
+Each variable has an associated "Click to edit," button, which allows us to 
+specify a value for that variable. Let's set each of the following values to be 
+utilized by PromptLayer when we run our prompt. Do not include the units for 
+values (i.e: "minutes" and "persons").
+1. `baking_time` = 50 (minutes)
+2. `cake_type` = Chocolate Cake
+3. `serving_size` = 8 (persons)
+
+By filling in these values in the secondary modal that appears when we "Click 
+to edit" a particular variable, we make them available to PromptLayer's 
+playground for usage when a prompt runs. After clicking "Done," we can "Run"
+our prompt, and the Playground will automatically fill in these values for us,
+resulting in a Cake Recipe for Chocolate Cake takes 50 minutes to bake, and
+serves 8 persons.
+
+Congratulations! You have engineered your first prompt!
+
+These templates that we have denoted with double curly braces have more 
+features than variable input. It extends to encompass a range of engineering
+concepts. They are a well-utilized format for adding templates to bodies of
+text. This is the Jinja2 templating language.
+
+Learn more about [Jinja2](https://docs.promptlayer.com/features/prompt-registry/template-variables#jinja2-templates).
+
+<Frame
+    caption='Curly Braces evoking Jinja2 templating, with `cake_type` and `serving_size` recognized as variables.'
+>
+![Variables](/images/quickstart/variables-explained.png)
+</Frame>
+
+Now we can save the our prompt with a message like, "Added base version of Cake 
+Recipe Generator," by clicking "Save Template."
 
 ### Versioning
 Versioning allows teams to safely refine and experiment without losing previous
@@ -112,10 +161,10 @@ You are a Michelin-star pastry chef and recipe writer. Generate detailed, reliab
 
 Each response must include the following sections formatted with clear headers:
 
-Overview: A one-paragraph introduction capturing the cake’s story and mood.
-Ingredients: Use bullet points with both metric and US measurements.
-Instructions: Numbered steps with exact details (temperature, mixing times, resting periods).
-Optional Enhancements: Variations, frostings, or pairings.
+**Overview**: A one-paragraph introduction capturing the cake’s story and mood.
+**Ingredients**: Use bullet points with both metric and US measurements.
+**Instructions**: Numbered steps with exact details (temperature, mixing times, resting periods).
+**Optional Enhancements**: Variations, frostings, or pairings.
 
 Maintain a confident yet friendly tone, suitable for both beginners and enthusiasts.
 ```
@@ -124,6 +173,57 @@ Maintain a confident yet friendly tone, suitable for both beginners and enthusia
 ```markdown
 Generate a recipe for a {{cake_type}} that serves {{serving_size}} people and should be completed within {{baking_time}} minutes.
 ```
+
+We have versioned our Cake Recipe Generator from being suitable for personal use
+into a prompt that can be installed in an application, by improving its persona 
+sophistication and consistency.
+
+Rather than have our AI adapt the role of "a world-class pastery chef and 
+culinary instructor," we instruct it to think along the lines of a "Michelin-star
+pastry chef and recipe writer." Not only does this change refine the AI's 
+point-of-view, it also improves its specificty. Specifity is vital when writing
+a prompt, as a particular choice of words can drastically change output. Our
+first prompt is absent of our requirement for the AI to think along the lines
+of a "recipe writer."
+
+We further refine the prompt by explicitly defining "clear headers" for 
+different sections of the generated Cake Recipe. 
+```
+**Overview**: ...
+**Ingredients**: ...
+**Instructions**: ...
+**Optional Enhancements**: ...
+```
+This change allows us to be sure every prompt's response by our AI is organized 
+the same way. This also helps prevents the AI from failing to include a section. 
+
+You may have noticed the usage of double asterix (e.g.: `**Overview**`) in our
+prompt's new version, and how PromptLayer's editor bolds the text it surrounds 
+in the editor. This is provided by PromptLayer's integration of basic Markdown, 
+which is a type of formatting that can be introduced to a prompt using plain 
+text characters. 
+
+Beyond bold text, you can add:
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+*italicized* text
+```
+
+Try these out in the editor to view what their rendered results look like in
+PromptLayer.
+
+This versioned improvement over our first prompt further gains consistency by 
+explicating formatting for the AI's response. Rather than simply asking for a 
+"short description that captures the cake’s essence," we require "a 
+one-paragraph introduction capturing the cake’s story and mood," which clarifies
+the length of output and focus for the subject of the description added to Cake 
+Recipes. The first version of the prompt's guideline: "step-by-step 
+instructions written conversationally but clearly" loses its vagueness with 
+"numbered steps with exact details (temperature, mixing times, resting 
+periods)." 
 
 #### Diffing
 Inspired by version control tools, the Diff Viewer highlights deletions in red

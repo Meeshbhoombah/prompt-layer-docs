@@ -34,7 +34,7 @@ Learn more about [Prompts](https://www.promptlayer.com/glossary/prompt).
 Prompts are the core of AI applications. PromptLayer is designed to help you 
 decouple this core from code.
 
-### Creation
+### Creating a Prompt
 Within the home of a workspace, a new Prompt can be created by clicking "New"
 then selecting "Prompt."
 
@@ -142,7 +142,7 @@ Learn more about [Jinja2](https://docs.promptlayer.com/features/prompt-registry/
 Now we can save the our prompt with a message like, "Added base version of Cake 
 Recipe Generator," by clicking "Save Template."
 
-### Versioning
+### Improving with Versions
 Versioning allows teams to safely refine and experiment without losing previous
 work. Every version records what changed, when, and by whom, making it simple to
 compare, test, or revert as your prompt evolves.
@@ -226,7 +226,7 @@ instructions written conversationally but clearly" loses its vagueness with
 "numbered steps with exact details (temperature, mixing times, resting 
 periods)." 
 
-#### Diffing
+#### Comparing Version's Differences
 Inspired by version control tools, the Diff Viewer highlights deletions in red
 and additions in green. This makes it easier to spot subtle edits that alter a
 prompt’s behavior or output.
@@ -239,7 +239,7 @@ Try diffing the two versions of our Cake Recipe Generator.
 ![Prompt diffing comparison view](/images/quickstart/prompt-diffing-display.png)
 </Frame>
 
-#### AI Prompt Writer
+#### Refining Automatically
 The AI Prompt Writer helps you rewrite prompts in clear and natural language.
 It suggests better ways to phrase your ideas, helping you get stronger results
 without needing to understand how the AI works under the hood.
@@ -250,7 +250,7 @@ without needing to understand how the AI works under the hood.
 ![Prompt AI writer suggestions](/images/quickstart/prompt-ai-writer-display.png)
 </Frame>
 
-#### Switch Models
+#### Switching AIs
 PromptLayer works with many different AI models. You can switch between popular 
 models like GPT-5, Opus, or Gemini directly from the dashboard. 
 
@@ -267,7 +267,7 @@ PromptLayer also supports [custom models](https://docs.promptlayer.com/features/
 and [fine-tuned models](https://docs.promptlayer.com/why-promptlayer/fine-tuning#fine-tuning) 
 for teams that need specialized behavior.
 
-#### Prompt Blueprint
+#### Exporting
 Prompts can be exported to be utilized within other AI systems via its "Prompt 
 Blueprint." 
 
@@ -346,7 +346,7 @@ processing application. It should look something like this:
 }
 ```
 
-### Releases
+### Deploying with Labels
 Release labels help you control which prompt versions are live. You can mark
 some versions as “testing” and others as “production.” This makes it possible
 to release changes slowly, compare results between two versions, and roll out
@@ -356,7 +356,7 @@ the best one when ready.
 ![Accessing prompt release controls](/images/quickstart/prompt-release-access.png)
 </Frame>
 
-#### A/B Testing
+#### Comparing Versions' Results
 A/B testing lets you compare two or more versions of a prompt to see which one
 performs better. It’s a simple way to test small changes, like wording or tone,
 before rolling them out to production.
@@ -375,7 +375,7 @@ a single click.
 
 Learn more about [A/B testing](/ab-testing).
 
-## Agents
+## Creating an Agent
 "Agents" are software programs that perceive their environment, make 
 decisions, and take actions autonomously to achieve a goal. These agents can
 range from simple systems like a thermostat to complex digital assistants 
@@ -395,14 +395,14 @@ through complex processes that unfold over several steps.
 ![Agent creation access in workspace](/images/quickstart/agent-creation-access.png)
 </Frame>
 
-## Evals
+## Evaluating Performance
 Evals are tests that show how well your prompts or agents perform. You can run
 automated checks, collect feedback from people, or measure accuracy over time.
 Evals make it easy to know when your AI is improving and when it needs work.
 
 Learn more about [Evaluations](https://docs.promptlayer.com/features/evaluations/overview).
 
-## Analytics
+## Analyzing Performance
 Analytics help you understand how your prompts and agents are performing. They
 show cost, speed, and quality, so you can make informed changes. Analytics also
 create an audit trail for every run, helping teams track and review all work.
@@ -411,7 +411,7 @@ create an audit trail for every run, helping teams track and review all work.
 ![Analytics dashboard display](/images/quickstart/analytics-display.png)
 </Frame>
 
-### Logs
+### Reviewing Prompt Executions
 Within a workspace, Logs are viewable by clicking the "Live Logs" icon. Each
 request to a model creates a Log.
 
@@ -423,7 +423,7 @@ Each prompt run is recorded with full details of what was sent and what came
 back. Logs help teams trace errors, learn from past results, and improve
 performance over time.
 
-#### View Logs By Prompt
+#### Drilling into a Prompt
 When a prompt is selected, clicking the "Analytics & Logs" panel reveals the
 Logs.
 
@@ -431,7 +431,7 @@ Logs.
 ![Logs filtered by prompt](/images/quickstart/logs-by-prompt-display.png)
 </Frame>
 
-### Tracing
+### Reviewing Agent Executions
 Tracing divides complex workflows into clear steps, called spans. You can see
 exactly how long each step takes and where issues may occur, making problem
 solving faster and easier.
@@ -444,7 +444,7 @@ solving faster and easier.
 Traces are for Agents, not Prompts
 </Note>
 
-### Observability
+### Monitoring Behavior
 Logs and traces together create observability, or the ability to see inside
 your system. With PromptLayer, every part of your AI process becomes clear and
 understandable, from first draft to production launch.

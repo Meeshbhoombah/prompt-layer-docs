@@ -4,23 +4,24 @@ icon: "flag-checkered"
 ---
 
 This guide teaches you how to start using PromptLayer, in minutes. It assumes no
-prior experience with artifical intelligence. 
+prior experience with artificial intelligence.
 
 <Info>
 [Create an account](https://dashboard.promptlayer.com/create-account) to use
 the Quickstart.
 </Info>
 
-To grasp some of the core features of PromptLayer, we'll build a Cake Recipe 
-generator that takes advantage of artifical intelligence to balance a chosen 
-type of cake and baking time. 
+To grasp some of the core features of PromptLayer, we'll build a Cake Recipe
+generator that takes advantage of artificial intelligence to balance a chosen
+type of cake and baking time.
 
-Having the know-how to create a recipe for any type of cake, within a specific 
-amount of time, would be difficult without artifical intelligence. Wikipedia's 
+Having the know-how to create a recipe for any type of cake, within a specific
+amount of time, would be difficult without artificial intelligence. Wikipedia's
 [List of Cakes](https://en.wikipedia.org/wiki/List_of_cakes) is 330 cakes long
-(we used an AI to count it for us), requring a dedicated human spending years to 
-master recipies. To adjust a recipe to a set time, mastery over it is necessary.
-Instead, artifical intelligence can adjust any recipe for us within seconds.
+(we used an AI to count it for us), requiring a dedicated human spending years
+to master recipes. To adjust a recipe to a set time, mastery over it is
+necessary. Instead, artificial intelligence can adjust any recipe for us within
+seconds.
 
 ## Prompts
 A prompt, in the context of artificial intelligence, is a carefully crafted 
@@ -87,8 +88,8 @@ Keep instructions simple enough for home bakers, but detailed enough to ensure c
 Create a cake recipe for {{cake_type}} that serves {{serving_size}} people and takes around {{baking_time}} minutes to bake.
 ```
 
-You'll notice that the User prompt automatically styles the text surrounded by 
-double curly braces (e.g.: `{{cake_type}}`) seperately from the rest of the 
+You'll notice that the User prompt automatically styles the text surrounded by
+double curly braces (e.g.: `{{cake_type}}`) separately from the rest of the
 prompt's text. We have denoted, and PromptLayer is detecting, the usage of 
 templates. Within these curly braces, we are utilizing one of the basic building
 blocks of engineering: variability. Roughly, variables are words that exist 
@@ -97,9 +98,9 @@ can be changed. In our case, the usage of variables suggest to PromptLayer that
 when a prompt is ran, these words should be replaced by a value that the 
 prompt's run has provided. This will make more sense if we use these variables.
 
-To use the variables we have defined within our prompt, PromptLayer's playground 
-provides the ability to create a groupings of values assocaited with variables
-defined in a prompt. Under "Input Variable Sets" on the right hand side of the 
+To use the variables we have defined within our prompt, PromptLayer's playground
+provides the ability to create a groupings of values associated with variables
+defined in a prompt. Under "Input Variable Sets" on the right hand side of the
 editor, click "Define input variables."
 
 A modal will appear with titled "Edit Input Variable Set," containing each of 
@@ -152,7 +153,7 @@ compare, test, or revert as your prompt evolves.
 ![Prompt version history display](/images/quickstart/prompt-versioning-display.png)
 </Frame>
 
-Let's version our Cake Recipe Generator. Add these changes to the System and 
+Let's version our Cake Recipe Generator. Add these changes to the System and
 User roles:
 
 ##### System
@@ -178,13 +179,13 @@ We have versioned our Cake Recipe Generator from being suitable for personal use
 into a prompt that can be installed in an application, by improving its persona 
 sophistication and consistency.
 
-Rather than have our AI adapt the role of "a world-class pastery chef and 
+Rather than have our AI adapt the role of "a world-class pastry chef and
 culinary instructor," we instruct it to think along the lines of a "Michelin-star
-pastry chef and recipe writer." Not only does this change refine the AI's 
-point-of-view, it also improves its specificty. Specifity is vital when writing
-a prompt, as a particular choice of words can drastically change output. Our
-first prompt is absent of our requirement for the AI to think along the lines
-of a "recipe writer."
+pastry chef and recipe writer." Not only does this change refine the AI's
+point-of-view, it also improves its specificity. Specificity is vital when
+writing a prompt, as a particular choice of words can drastically change output.
+Our first prompt is absent of our requirement for the AI to think along the
+lines of a "recipe writer."
 
 We further refine the prompt by explicitly defining "clear headers" for 
 different sections of the generated Cake Recipe. 
@@ -197,7 +198,7 @@ different sections of the generated Cake Recipe.
 This change allows us to be sure every prompt's response by our AI is organized 
 the same way. This also helps prevents the AI from failing to include a section. 
 
-You may have noticed the usage of double asterix (e.g.: `**Overview**`) in our
+You may have noticed the usage of double asterisk (e.g.: `**Overview**`) in our
 prompt's new version, and how PromptLayer's editor bolds the text it surrounds 
 in the editor. This is provided by PromptLayer's integration of basic Markdown, 
 which is a type of formatting that can be introduced to a prompt using plain 
@@ -230,7 +231,7 @@ Inspired by version control tools, the Diff Viewer highlights deletions in red
 and additions in green. This makes it easier to spot subtle edits that alter a
 prompt’s behavior or output.
 
-Try diffing the two verisons of our Cake Recipe Generator.
+Try diffing the two versions of our Cake Recipe Generator.
 
 <Frame
     caption='The diff of two prompts, presented after clicking "View Diff"'

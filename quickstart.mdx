@@ -23,7 +23,7 @@ to master recipes. To adjust a recipe to a set time, mastery over it is
 necessary. Instead, artificial intelligence can adjust any recipe for us within
 seconds.
 
-## Prompts
+## 1. Creating a Prompt
 A prompt, in the context of artificial intelligence, is a carefully crafted 
 input provided to an AI model to elicit a specific response or output. It serves
 as the primary means of communication between humans and AI systems, guiding 
@@ -34,7 +34,6 @@ Learn more about [Prompts](https://www.promptlayer.com/glossary/prompt).
 Prompts are the core of AI applications. PromptLayer is designed to help you 
 decouple this core from code.
 
-### Creating a Prompt
 Within the home of a workspace, a new Prompt can be created by clicking "New"
 then selecting "Prompt."
 
@@ -70,8 +69,7 @@ Learn more about [User Prompts](https://blog.promptlayer.com/system-prompt-vs-us
 Let's begin building our Cake Recipe Generator. Create a new prompt, then 
 replace its contents with the following:
 
-##### System
-```markdown
+```markdown System wrap
 You are a world-class pastry chef and culinary instructor who specializes in making recipes clear, adaptable, and delicious. Your goal is to generate cake recipes that balance creativity and structure.
 
 Recipes should always include:
@@ -83,8 +81,7 @@ Recipes should always include:
 Keep instructions simple enough for home bakers, but detailed enough to ensure consistent results.
 ```
 
-##### User
-```markdown
+```markdown User wrap
 Create a cake recipe for {{cake_type}} that serves {{serving_size}} people and takes around {{baking_time}} minutes to bake.
 ```
 
@@ -142,7 +139,7 @@ Learn more about [Jinja2](/features/prompt-registry/template-variables#jinja2-te
 Now we can save the our prompt with a message like, "Added base version of Cake 
 Recipe Generator," by clicking "Save Template."
 
-### Improving with Versions
+## 2. Improving with Versions
 Versioning allows teams to safely refine and experiment without losing previous
 work. Every version records what changed, when, and by whom, making it simple to
 compare, test, or revert as your prompt evolves.
@@ -156,8 +153,7 @@ compare, test, or revert as your prompt evolves.
 Let's version our Cake Recipe Generator. Add these changes to the System and
 User roles:
 
-##### System
-```markdown
+```markdown System wrap
 You are a Michelin-star pastry chef and recipe writer. Generate detailed, reliable, and imaginative cake recipes.
 
 Each response must include the following sections formatted with clear headers:
@@ -170,8 +166,7 @@ Each response must include the following sections formatted with clear headers:
 Maintain a confident yet friendly tone, suitable for both beginners and enthusiasts.
 ```
 
-##### User
-```markdown
+```markdown User wrap
 Generate a recipe for a {{cake_type}} that serves {{serving_size}} people and should be completed within {{baking_time}} minutes.
 ```
 
@@ -205,7 +200,7 @@ which is a type of formatting that can be introduced to a prompt using plain
 text characters. 
 
 Beyond bold text, you can add:
-```markdown
+```markdown Markdown Options
 # Heading 1
 ## Heading 2
 ### Heading 3
@@ -226,7 +221,7 @@ instructions written conversationally but clearly" loses its vagueness with
 "numbered steps with exact details (temperature, mixing times, resting 
 periods)." 
 
-#### Comparing Version's Differences
+### 2.a. Comparing Version's Differences
 Inspired by version control tools, the Diff Viewer highlights deletions in red
 and additions in green. This makes it easier to spot subtle edits that alter a
 prompt’s behavior or output.
@@ -242,7 +237,7 @@ Diff" button. Click it view a side-by-side comparision of the two versions.
 ![Prompt diffing comparison view](/images/quickstart/prompt-diffing-display.png)
 </Frame>
 
-#### Refining Automatically
+### 2.b. Refining Automatically
 The AI Prompt Writer helps you rewrite prompts in clear and natural language.
 It suggests better ways to phrase your ideas, helping you get stronger results
 without needing to understand how the AI works under the hood.
@@ -257,7 +252,7 @@ Here's an example prompt you can give to the AI Prompt Writer that can further
 refine the Cake Recipe Generator we have built. Suggested changes  will vary 
 between each run of the AI Prompt Writer with this prompt.
 
-```markdown
+```markdown Input for AI Prompt Writer 
 Update this prompt to consider allergies
 ```
 
@@ -265,7 +260,7 @@ Allergens are a complex consideration to handle. We can leverage AI to ensure we
 completly address this, as it can be a leaned-upon as a source of exhaustive 
 thinking. 
 
-#### Switching AIs
+### 2.c. Switching AIs
 PromptLayer keeps prompts independent of AI models. You can switch between 
 popular models like GPT-5, Opus, or Gemini directly from the dashboard. 
 
@@ -290,7 +285,7 @@ and [fine-tuned models](/why-promptlayer/fine-tuning#fine-tuning)
 for teams that need specialized behavior.
 </Info>
 
-#### Exporting
+### 2.d. Exporting
 Prompts can be exported to be utilized within other AI systems. Access it via
 the settings button at the top of the prompt editor.
 
@@ -369,7 +364,7 @@ processing application. It should look something like this:
 }
 ```
 
-### Deploying with Labels
+### 2.e. Deploying with Labels
 Release labels help you control which prompt versions are live. You can mark
 some versions as “testing” and others as “production.” This makes it possible
 to release changes slowly, compare results between two versions, and roll out
@@ -421,7 +416,7 @@ First, remove any incorrect versions by clicking the red "-" button. Then click
 This will duplicate the A/B test in the screenshot.
 </Accordion>
 
-## Creating an Agent
+## 3. Creating an Agent
 "Agents" are software programs that perceive their environment, make 
 decisions, and take actions autonomously to achieve a goal. These agents can
 range from simple systems like a thermostat to complex digital assistants 
@@ -441,14 +436,14 @@ through complex processes that unfold over several steps.
 ![Agent creation access in workspace](/images/quickstart/agent-creation-access.png)
 </Frame>
 
-## Evaluating Performance
+## 4. Evaluating Performance
 Evals are tests that show how well your prompts or agents perform. You can run
 automated checks, collect feedback from people, or measure accuracy over time.
 Evals make it easy to know when your AI is improving and when it needs work.
 
 Learn more about [Evaluations](/features/evaluations/overview).
 
-## Analyzing Performance
+## 5. Analyzing Performance
 Analytics help you understand how your prompts and agents are performing. They
 show cost, speed, and quality, so you can make informed changes. Analytics also
 create an audit trail for every run, helping teams track and review all work.
@@ -459,7 +454,7 @@ create an audit trail for every run, helping teams track and review all work.
 ![Analytics dashboard display](/images/quickstart/analytics-display.png)
 </Frame>
 
-### Reviewing Prompt Executions
+### 5.a. Reviewing Prompt Executions
 Within a workspace, Logs are viewable by clicking the "Live Logs" icon. Each
 request to a model creates a Log.
 
@@ -481,7 +476,7 @@ Logs.
 ![Logs filtered by prompt](/images/quickstart/logs-by-prompt-display.png)
 </Frame>
 
-### Reviewing Agent Executions
+### 5.b. Reviewing Agent Executions
 Tracing divides complex workflows into clear steps, called spans. You can see
 exactly how long each step takes and where issues may occur, making problem
 solving faster and easier.
@@ -496,7 +491,7 @@ solving faster and easier.
 Traces are for Agents, not Prompts
 </Note>
 
-### Monitoring Behavior
+### 5.c. Monitoring Behavior
 Logs and traces together create observability, or the ability to see inside
 your system. With PromptLayer, every part of your AI process becomes clear and
 understandable, from first draft to production launch.

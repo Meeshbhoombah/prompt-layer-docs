@@ -231,7 +231,10 @@ Inspired by version control tools, the Diff Viewer highlights deletions in red
 and additions in green. This makes it easier to spot subtle edits that alter a
 prompt’s behavior or output.
 
-Try diffing the two versions of our Cake Recipe Generator.
+To clearly view the changes we made between the first version of prompt and the
+second, ensure that you have the latest version selected (it should be 
+highlighted blue), then hover the previous version. This will reveal a "View 
+Diff" button. Click it view a side-by-side comparision of the two versions.
 
 <Frame
     caption='The diff of two prompts, presented after clicking "View Diff"'
@@ -250,11 +253,21 @@ without needing to understand how the AI works under the hood.
 ![Prompt AI writer suggestions](/images/quickstart/prompt-ai-writer-display.png)
 </Frame>
 
-#### Switching AIs
-PromptLayer works with many different AI models. You can switch between popular 
-models like GPT-5, Opus, or Gemini directly from the dashboard. 
+Here's an example prompt you can give to the AI Prompt Writer that can further 
+refine the Cake Recipe Generator we have built. Suggested changes  will vary 
+between each run of the AI Prompt Writer with this prompt.
 
-Try switching the model of our Cake Recipe Generator.
+```markdown
+Update this prompt to consider allergies
+```
+
+Allergens are a complex consideration to handle. We can leverage AI to ensure we
+completly address this, as it can be a leaned-upon as a source of exhaustive 
+thinking. 
+
+#### Switching AIs
+PromptLayer keeps prompts independent of AI models. You can switch between 
+popular models like GPT-5, Opus, or Gemini directly from the dashboard. 
 
 <Frame
     caption='The Model Configuration Panel, accessed by clicking the current 
@@ -263,24 +276,34 @@ Try switching the model of our Cake Recipe Generator.
 ![Switching models in the prompt editor](/images/quickstart/prompt-switch-model-display.png)
 </Frame>
 
+Switching the model of our Cake Recipe Generator allows us to test the 
+each of their responses, and determine which is the most suitable to addressing
+the needs of our prompt's model. By default, your model may be using gpt-4o. A
+switch to GPT-5.1 might improve consistency and creativity, but could be more
+expensive. 
+
+We'll keep our model as gpt-4o for the rest of the Quickstart.
+
+<Info>
 PromptLayer also supports [custom models](https://docs.promptlayer.com/features/custom-providers) 
 and [fine-tuned models](https://docs.promptlayer.com/why-promptlayer/fine-tuning#fine-tuning) 
 for teams that need specialized behavior.
+</Info>
 
 #### Exporting
-Prompts can be exported to be utilized within other AI systems via its "Prompt 
-Blueprint." 
+Prompts can be exported to be utilized within other AI systems. Access it via
+the settings button at the top of the prompt editor.
 
 <Frame
-    caption='"Copy to Clipboard" provides the Prompt Blueprint'
+    caption='"Copy to Clipboard," accessible via settings'
 >
 ![Prompt blueprint export view](/images/quickstart/prompt-blueprint-display.png)
 </Frame>
 
-<br></br>
+This exported format of a prompt is known as its "Prompt Blueprint."
+
 <Accordion
-    icon="info"
-    title='"Prompt Blueprints" are a PromptLayer format'
+    title='Prompt Blueprints, Explained'
 >
 Defined by PromptLayer, "Prompt Blueprints" format the information that build a 
 Prompt (e.g.: the "User" and "System" roles) by surrounding its text.
@@ -356,6 +379,9 @@ the best one when ready.
 ![Accessing prompt release controls](/images/quickstart/prompt-release-access.png)
 </Frame>
 
+We can add a "testing" label to our prompt to mark that we are near-ready for
+installing it in our application.
+
 #### Comparing Versions' Results
 A/B testing lets you compare two or more versions of a prompt to see which one
 performs better. It’s a simple way to test small changes, like wording or tone,
@@ -364,6 +390,11 @@ before rolling them out to production.
 PromptLayer makes A/B testing part of your workflow. You can assign release
 labels such as “A” and “B” to different prompt versions, send each version a
 portion of live traffic, and track which one produces better responses.
+
+<Note>
+A/B testing prompts requires at least version of the prompt to have a set 
+release label.
+</Note>
 
 This process helps teams learn what works through real data, not guesswork.
 Once the winning version is identified, it can be promoted to production with
@@ -374,6 +405,21 @@ a single click.
 </Frame>
 
 Learn more about [A/B testing](/ab-testing).
+
+We can start an A/B test of our Cake Recipe Generator by hovering any version
+of the prompt, then clicking "Start A/B Test." From here, we can select the
+testing label. This will auto-populate another version of the prompt for the
+labeled prompt to be tested against.
+
+Try editing your A/B test to match the screenshot above.
+
+<Accordion
+    title="Duplcating the Screenshot Walkthrough"
+>
+First, remove any incorrect versions by clicking the red "-" button. Then click
+"+ Add Version," select "Version 2" in the drop-down menu, and click "Add." 
+This will duplicate the A/B test in the screenshot.
+</Accordion>
 
 ## Creating an Agent
 "Agents" are software programs that perceive their environment, make 
@@ -407,7 +453,9 @@ Analytics help you understand how your prompts and agents are performing. They
 show cost, speed, and quality, so you can make informed changes. Analytics also
 create an audit trail for every run, helping teams track and review all work.
 
-<Frame>
+<Frame
+    caption="Access Analytics for your workspace via the Analytics Navigation item in the Sidebar"
+>
 ![Analytics dashboard display](/images/quickstart/analytics-display.png)
 </Frame>
 
@@ -415,7 +463,9 @@ create an audit trail for every run, helping teams track and review all work.
 Within a workspace, Logs are viewable by clicking the "Live Logs" icon. Each
 request to a model creates a Log.
 
-<Frame>
+<Frame
+    caption="Access Live Logs for your workspace via the Live Logs Navigation item in the Sidebar"
+>
 ![Logs interface display](/images/quickstart/logs-display.png)
 </Frame>
 
@@ -436,7 +486,9 @@ Tracing divides complex workflows into clear steps, called spans. You can see
 exactly how long each step takes and where issues may occur, making problem
 solving faster and easier.
 
-<Frame>
+<Frame
+    caption='Access Traces for your workspace via the Live Logs Navigation item in the Sidebar, then select "Traces" at the top, next to requests'
+>
 ![Trace visualization display](/images/quickstart/traces-display.png)
 </Frame>
 
